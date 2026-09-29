@@ -255,29 +255,6 @@ case '/':
 
 ---
 
-# 5. Error yang Pernah Muncul
-
-| Item          | Keterangan                                                                                                                                 |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Error**     | `Warning: Undefined variable $hasil` pada `Kalkulator.php`                                                                                 |
-| **Penyebab**  | Variabel `$hasil` hanya dibuat ketika kondisi `POST` dijalankan. Saat halaman pertama kali dibuka, variabel tersebut belum memiliki nilai. |
-| **Perbaikan** | Menambahkan inisialisasi `$hasil = null;` dan `$pesan = '';` pada bagian awal program sebelum proses `POST`.                               |
-
-### Perbaikan Code
-
-```php
-$hasil = null;
-$pesan = '';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // proses kalkulator
-}
-```
-
-Dengan adanya inisialisasi tersebut, program dapat dibuka terlebih dahulu tanpa menghasilkan warning karena variabel sudah memiliki nilai awal.
-
----
-
 # Kesimpulan
 
 Dari tugas yang telah dilakukan, program Biodata dan Kalkulator berhasil dijalankan serta dimodifikasi sesuai dengan ketentuan tugas.
