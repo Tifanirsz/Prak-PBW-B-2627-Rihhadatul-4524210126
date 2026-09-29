@@ -150,9 +150,9 @@ Dengan adanya perubahan tersebut, tampilan identitas mahasiswa menjadi lebih men
 
 # 3. Lima Bagian Kode yang Penting
 
-## 1.) Interface `BisaDihitung`
+## 1.) Interface BisaDihitung
 
-Interface `BisaDihitung` digunakan untuk menentukan bahwa class yang menggunakannya harus memiliki function `hargaAkhir()`. Interface ini membantu membuat aturan yang sama untuk class `Produk` dan turunannya.
+Interface BisaDihitung digunakan untuk menentukan bahwa class yang menggunakannya harus memiliki function hargaAkhir(). Interface ini membantu membuat aturan yang sama untuk class `Produk` dan turunannya.
 
 **Code:**
 
@@ -165,9 +165,9 @@ interface BisaDihitung
 
 ---
 
-## 2.) Inheritance pada `ProdukDiskon`
+## 2.) Inheritance pada ProdukDiskon
 
-`ProdukDiskon` merupakan turunan dari class `Produk` menggunakan `extends`. Dengan inheritance, `ProdukDiskon` dapat menggunakan property dan method dari class `Produk`, kemudian menambahkan fitur diskon.
+ProdukDiskon merupakan turunan dari class Produk menggunakan extends. Dengan inheritance, ProdukDiskon dapat menggunakan property dan method dari class Produk, kemudian menambahkan fitur diskon.
 
 **Code:**
 
@@ -204,9 +204,9 @@ if ($diskon < 0 || $diskon > 100) {
 
 ---
 
-## 4.) Perulangan `foreach`
+## 4.) Perulangan foreach
 
-`foreach` digunakan untuk mengambil setiap produk yang terdapat dalam array `$daftar`. Dengan perulangan ini, semua produk dapat ditampilkan ke dalam tabel tanpa harus menuliskannya satu per satu.
+foreach digunakan untuk mengambil setiap produk yang terdapat dalam array $daftar. Dengan perulangan ini, semua produk dapat ditampilkan ke dalam tabel tanpa harus menuliskannya satu per satu.
 
 **Code:**
 
@@ -225,9 +225,9 @@ if ($diskon < 0 || $diskon > 100) {
 
 ---
 
-## 5.) Function `ringkasan()`
+## 5.) Function ringkasan()
 
-Function `ringkasan()` digunakan untuk menggabungkan data NIM, nama, dan IPK mahasiswa menjadi satu teks. Hasil dari function ini kemudian ditampilkan pada halaman identitas.
+Function ringkasan() digunakan untuk menggabungkan data NIM, nama, dan IPK mahasiswa menjadi satu teks. Hasil dari function ini kemudian ditampilkan pada halaman identitas.
 
 **Code:**
 
@@ -271,7 +271,7 @@ public function ringkasan(): string
 
 | Item          | Keterangan                                                                                                                                        |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Error**     | `InvalidArgumentException: Harga tidak boleh negatif.`                                                                                            |
+| **Error**     | InvalidArgumentException: Harga tidak boleh negatif.                                                                                            |
 | **Penyebab**  | Error muncul ketika nilai harga yang diberikan kurang dari 0. Program memang melakukan pengecekan agar harga produk tidak boleh bernilai negatif. |
 | **Perbaikan** | Menggunakan harga dengan nilai 0 atau lebih. Jika input berasal dari pengguna, input juga perlu divalidasi terlebih dahulu sebelum diproses.      |
 
@@ -291,5 +291,6 @@ Dengan adanya validasi tersebut, program dapat mencegah data harga yang tidak se
 
 # Kesimpulan
 
-Dari tugas yang sudah dikerjakan, program `hitung.php` dan `identitas.php` berhasil dijalankan dan dimodifikasi sesuai dengan ketentuan tugas. Pada `hitung.php`, saya menambahkan validasi harga dan diskon, menambahkan produk baru, serta mengubah tampilan hasil menjadi tabel.
-Sedangkan pada `identitas.php`, saya menambahkan styling CSS dan tampilan badge agar halaman identitas mahasiswa terlihat lebih rapi. Dari tugas ini saya juga jadi lebih memahami penggunaan class, object, interface, inheritance, function, validasi, dan perulangan dalam PHP.
+# Kesimpulan
+
+Program hitung.php dan identitas.php berhasil dijalankan dan dimodifikasi. Pada hitung.php saya menambahkan validasi harga dan diskon, menambahkan produk baru, serta membuat hasilnya ditampilkan dalam bentuk tabel. Sedangkan pada identitas.php saya menambahkan CSS dan badge agar tampilannya lebih rapi.
