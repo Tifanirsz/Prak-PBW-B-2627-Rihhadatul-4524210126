@@ -74,9 +74,9 @@ Seluruh contoh program pada Pertemuan 1 dijalankan terlebih dahulu untuk memasti
 
 ![Biodata Sesudah](../asset/biodata_sesudah.png)
 
-### 1.) Menambahkan field `fakultas`
+### 1.) Menambahkan field fakultas
 
-Field `fakultas` ditambahkan ke dalam array mahasiswa untuk memberikan informasi yang lebih lengkap. Karena data ditampilkan menggunakan `foreach`, field baru tersebut akan otomatis ikut ditampilkan.
+Field fakultas ditambahkan ke dalam array mahasiswa untuk memberikan informasi yang lebih lengkap. Karena data ditampilkan menggunakan foreach, field baru tersebut akan otomatis ikut ditampilkan.
 
 **Code:**
 
@@ -129,7 +129,7 @@ Program Kalkulator diberikan CSS agar tampilan lebih teratur dan nyaman digunaka
 
 ## 1.) Array Asosiatif
 
-Array asosiatif digunakan untuk menyimpan beberapa data mahasiswa dalam satu variabel. Setiap data memiliki key seperti `nim`, `nama`, `prodi`, dan `ipk`, sehingga data dapat diakses berdasarkan nama key tersebut.
+Array asosiatif digunakan untuk menyimpan beberapa data mahasiswa dalam satu variabel. Setiap data memiliki key seperti nim, nama, prodi, dan ipk, sehingga data dapat diakses berdasarkan nama key tersebut.
 
 **Code:**
 
@@ -146,7 +146,7 @@ $mahasiswa = [
 
 ---
 
-## 2.) Function `statusKelulusan()`
+## 2.) Function statusKelulusan()
 
 Function ini digunakan untuk menentukan predikat mahasiswa berdasarkan nilai IPK. Dengan function ini, predikat dapat ditentukan secara otomatis tanpa perlu ditulis secara manual.
 
@@ -173,11 +173,11 @@ function statusKelulusan(float $ipk): string
 
 ---
 
-## 3.) Perulangan `foreach`
+## 3.) Perulangan foreach
 
-`foreach` digunakan untuk mengambil dan menampilkan seluruh data yang terdapat di dalam array mahasiswa. Dengan cara ini, tidak perlu menuliskan setiap data satu per satu.
+foreach digunakan untuk mengambil dan menampilkan seluruh data yang terdapat di dalam array mahasiswa. Dengan cara ini, tidak perlu menuliskan setiap data satu per satu.
 
-`ucfirst()` digunakan untuk membuat huruf pertama menjadi kapital, sedangkan `htmlspecialchars()` digunakan agar data yang ditampilkan lebih aman dari karakter HTML khusus.
+ucfirst() digunakan untuk membuat huruf pertama menjadi kapital, sedangkan `htmlspecialchars()` digunakan agar data yang ditampilkan lebih aman dari karakter HTML khusus.
 
 **Code:**
 
