@@ -181,8 +181,6 @@ function statusKelulusan(float $ipk): string
 
 foreach digunakan untuk mengambil dan menampilkan seluruh data yang terdapat di dalam array mahasiswa. Dengan cara ini, tidak perlu menuliskan setiap data satu per satu.
 
-ucfirst() digunakan untuk membuat huruf pertama menjadi kapital, sedangkan `htmlspecialchars()` digunakan agar data yang ditampilkan lebih aman dari karakter HTML khusus.
-
 **Code:**
 
 ```php
@@ -198,7 +196,7 @@ ucfirst() digunakan untuk membuat huruf pertama menjadi kapital, sedangkan `html
 
 ## 4.) Mengambil Data dengan $_POST
 
-`$_POST` digunakan untuk mengambil data yang dikirimkan melalui form Kalkulator. Operator `??` digunakan untuk memberikan nilai default apabila data belum tersedia, sedangkan `(float)` digunakan untuk mengubah input menjadi tipe data angka.
+$_POST digunakan untuk mengambil data yang dikirimkan melalui form Kalkulator. Operator ?? digunakan untuk memberikan nilai default apabila data belum tersedia, sedangkan (float) digunakan untuk mengubah input menjadi tipe data angka.
 
 **Code:**
 
