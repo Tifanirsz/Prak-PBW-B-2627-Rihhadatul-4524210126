@@ -76,7 +76,7 @@ Seluruh contoh program pada Pertemuan 2 dijalankan terlebih dahulu untuk memasti
 
 ### 1.) Menambahkan validasi harga
 
-Validasi harga ditambahkan untuk memastikan harga produk tidak boleh memiliki nilai negatif. Jika harga yang dimasukkan kurang dari 0, program akan memberikan pesan error menggunakan `InvalidArgumentException`.
+Validasi harga ditambahkan untuk memastikan harga produk tidak boleh memiliki nilai negatif. Jika harga yang dimasukkan kurang dari 0, program akan memberikan pesan error menggunakan InvalidArgumentException.
 
 **Code:**
 
@@ -240,56 +240,6 @@ public function ringkasan(): string
 ```
 
 ---
-
-# 4. Screenshot Sebelum dan Sesudah Modifikasi
-
-## A. identitas.php
-
-### Sebelum Modifikasi
-
-![Identitas Sebelum](../asset/identitas_sebelum.png)
-
-### Sesudah Modifikasi
-
-![Identitas Sesudah](../asset/identitas_sesudah.png)
-
----
-
-## B. hitung.php
-
-### Sebelum Modifikasi
-
-![Hitung Sebelum](../asset/hitung_sebelum.png)
-
-### Sesudah Modifikasi
-
-![Hitung Sesudah](../asset/hitung_sesudah.png)
-
----
-
-# 5. Error yang Pernah Muncul
-
-| Item          | Keterangan                                                                                                                                        |
-| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Error**     | InvalidArgumentException: Harga tidak boleh negatif.                                                                                            |
-| **Penyebab**  | Error muncul ketika nilai harga yang diberikan kurang dari 0. Program memang melakukan pengecekan agar harga produk tidak boleh bernilai negatif. |
-| **Perbaikan** | Menggunakan harga dengan nilai 0 atau lebih. Jika input berasal dari pengguna, input juga perlu divalidasi terlebih dahulu sebelum diproses.      |
-
-### Bagian Code yang Menangani Error
-
-```php
-if ($harga < 0) {
-    throw new InvalidArgumentException(
-        'Harga tidak boleh negatif.'
-    );
-}
-```
-
-Dengan adanya validasi tersebut, program dapat mencegah data harga yang tidak sesuai dan memberikan pesan yang jelas ketika terjadi kesalahan.
-
----
-
-# Kesimpulan
 
 # Kesimpulan
 
