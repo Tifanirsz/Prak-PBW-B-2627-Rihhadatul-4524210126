@@ -192,7 +192,7 @@ ucfirst() digunakan untuk membuat huruf pertama menjadi kapital, sedangkan `html
 
 ---
 
-## 4.) Mengambil Data dengan `$_POST`
+## 4.) Mengambil Data dengan $_POST
 
 `$_POST` digunakan untuk mengambil data yang dikirimkan melalui form Kalkulator. Operator `??` digunakan untuk memberikan nilai default apabila data belum tersedia, sedangkan `(float)` digunakan untuk mengubah input menjadi tipe data angka.
 
@@ -233,4 +233,4 @@ case '/':
 
 # Kesimpulan
 
-Program Biodata dan Kalkulator berhasil dijalankan serta dimodifikasi sesuai dengan ketentuan tugas. Pada program Biodata dilakukan penambahan field `fakultas` dan validasi nilai IPK. Sedangkan pada program Kalkulator ditambahkan validasi input, validasi operator, serta styling menggunakan CSS. Selain menambahkan fitur, proses modifikasi juga membantu memahami penggunaan array, function, `foreach`, `$_POST`, validasi, dan kondisi dalam pemrograman PHP.
+Dari tugas yang sudah dikerjakan, program Biodata dan Kalkulator berhasil dijalankan dan dimodifikasi sesuai dengan ketentuan tugas. Pada program Biodata, saya menambahkan field fakultas dan validasi IPK. Sedangkan pada program Kalkulator, saya menambahkan validasi input dan membuat tampilannya lebih rapi menggunakan CSS.
