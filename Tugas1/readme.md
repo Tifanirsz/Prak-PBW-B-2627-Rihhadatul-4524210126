@@ -20,7 +20,7 @@ PEMROGRAMAN BERBASIS WEB
 </p>
 
 <p style="font-size: 15px; margin-top: 5px;">
-<b>Rihhadatul Aisy Septifani Zain</b><br>
+Rihhadatul Aisy Septifani Zain<br>
 4524210126
 </p>
 
