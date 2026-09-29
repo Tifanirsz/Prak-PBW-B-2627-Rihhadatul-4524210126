@@ -68,9 +68,11 @@ Seluruh contoh program pada Pertemuan 1 dijalankan terlebih dahulu untuk memasti
 
 # 2. Modifikasi Program
 
-Pada tugas ini dilakukan beberapa perubahan pada program Biodata dan Kalkulator. Modifikasi dilakukan untuk menambahkan fitur, validasi, serta membuat tampilan program menjadi lebih baik.
-
 ## A. Modifikasi pada Biodata.php
+
+### Sesudah Modifikasi
+
+![Biodata Sesudah](../asset/biodata_sesudah.png)
 
 ### 1.) Menambahkan field `fakultas`
 
@@ -257,8 +259,4 @@ case '/':
 
 # Kesimpulan
 
-Dari tugas yang telah dilakukan, program Biodata dan Kalkulator berhasil dijalankan serta dimodifikasi sesuai dengan ketentuan tugas.
-
-Pada program Biodata dilakukan penambahan field `fakultas` dan validasi nilai IPK. Sedangkan pada program Kalkulator ditambahkan validasi input, validasi operator, serta styling menggunakan CSS.
-
-Selain menambahkan fitur, proses modifikasi juga membantu memahami penggunaan array, function, `foreach`, `$_POST`, validasi, dan kondisi dalam pemrograman PHP.
+Program Biodata dan Kalkulator berhasil dijalankan serta dimodifikasi sesuai dengan ketentuan tugas. Pada program Biodata dilakukan penambahan field `fakultas` dan validasi nilai IPK. Sedangkan pada program Kalkulator ditambahkan validasi input, validasi operator, serta styling menggunakan CSS. Selain menambahkan fitur, proses modifikasi juga membantu memahami penggunaan array, function, `foreach`, `$_POST`, validasi, dan kondisi dalam pemrograman PHP.
