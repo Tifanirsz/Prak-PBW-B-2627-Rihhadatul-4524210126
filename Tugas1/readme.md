@@ -107,6 +107,10 @@ if ($ipk < 0 || $ipk > 4) {
 
 ## B. Modifikasi pada Kalkulator.php
 
+### Sesudah Modifikasi
+
+![Biodata Sesudah](../asset/kalkulator_sesudah.png)
+
 ### 1.) Menambahkan validasi input
 
 Validasi digunakan untuk memastikan angka yang dimasukkan oleh pengguna benar-benar berupa angka. Jika input tidak sesuai, program akan menampilkan pesan error.
