@@ -231,32 +231,6 @@ case '/':
 
 ---
 
-# 4. Screenshot Sebelum dan Sesudah Modifikasi
-
-## A. Biodata.php
-
-### Sebelum Modifikasi
-
-![Biodata Sebelum](../asset/biodata_sebelum.png)
-
-### Sesudah Modifikasi
-
-![Biodata Sesudah](../asset/biodata_sesudah.png)
-
----
-
-## B. Kalkulator.php
-
-### Sebelum Modifikasi
-
-![Kalkulator Sebelum](../asset/kalkulator_sebelum.png)
-
-### Sesudah Modifikasi
-
-![Kalkulator Sesudah](../asset/kalkulator_sesudah.png)
-
----
-
 # Kesimpulan
 
 Program Biodata dan Kalkulator berhasil dijalankan serta dimodifikasi sesuai dengan ketentuan tugas. Pada program Biodata dilakukan penambahan field `fakultas` dan validasi nilai IPK. Sedangkan pada program Kalkulator ditambahkan validasi input, validasi operator, serta styling menggunakan CSS. Selain menambahkan fitur, proses modifikasi juga membantu memahami penggunaan array, function, `foreach`, `$_POST`, validasi, dan kondisi dalam pemrograman PHP.
