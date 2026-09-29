@@ -11,7 +11,7 @@ PEMROGRAMAN BERBASIS WEB
 
 <br>
 
-<img src="../asset/logo_UP.webp" width="300">
+<img src="../asset/logo_UP.png" width="300">
 
 <br><br>
 
