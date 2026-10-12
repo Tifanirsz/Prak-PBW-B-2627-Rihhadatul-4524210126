@@ -78,238 +78,204 @@ Program simpan.php dijalankan terlebih dahulu untuk memastikan proses pengolahan
 
 ![Kode Tugas 4 Sesudah](../asset/simpan_sesudah.png)
  
-### 1.) Menambahkan tabel alamat mahasiswa 
- 
-Pada program ditambahkan tabel baru bernama alamat_mahasiswa untuk menyimpan alamat dan kota mahasiswa. Tabel ini memiliki relasi dengan tabel mahasiswa menggunakan FOREIGN KEY. 
- 
-**Code:** 
- 
+
+## 1.) Membuat Form Data Mahasiswa
+
+Pada program ditambahkan form data mahasiswa untuk memasukkan NIM, nama, email, program studi, angkatan, dan IPK. Form dibuat menggunakan HTML dan CSS agar tampilannya lebih rapi dan mudah digunakan.
+
+**Code:**
+
+```html
+<form action="simpan.php" method="post">
+    NIM:
+    <input type="text" name="nim" required placeholder="Masukkan NIM">
+
+    Nama:
+    <input type="text" name="nama" required placeholder="Masukkan nama">
+
+    Email:
+    <input type="email" name="email" required placeholder="Masukkan email">
+
+    Prodi:
+    <input type="text" name="prodi" required placeholder="Masukkan program studi">
+
+    Angkatan:
+    <input type="number" name="angkatan" min="2000" max="2100" required placeholder="Masukkan angkatan">
+
+    IPK:
+    <input type="number" name="ipk" min="0" max="4" step="0.01" required placeholder="Masukkan IPK">
+
+    <button type="submit">Simpan Data</button>
+</form>
+```
+
+Form menggunakan atribut action="simpan.php" untuk mengirim data ke file simpan.php dengan metode POST. Atribut required memastikan setiap kolom harus diisi, sedangkan min, max, dan step digunakan untuk membatasi input angkatan dan IPK.
+
+---
+
+## 2.) Mengatur Tampilan Form Menggunakan CSS
+
+Pada program ditambahkan CSS untuk mengatur warna latar belakang, posisi form, ukuran input, dan tampilan tombol agar lebih menarik.
+
+**Code:**
+
+```css
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 30px;
+}
+
+.container {
+    width: 350px;
+    margin: auto;
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+h2 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #388E3C;
+}
+```
+
+CSS digunakan untuk membuat tampilan form lebih rapi. Efek button:hover mengubah warna tombol ketika kursor diarahkan ke tombol tersebut.
+
+---
+
+## 3.) Menghubungkan Form dengan Database
+
+Pada file simpan.php, program menghubungkan database melalui file koneksi.php dan mengambil data yang dikirim dari form menggunakan metode POST.
+
+**Code:**
+
 ```php
-$sqlTabel1 = "CREATE TABLE IF NOT EXISTS alamat_mahasiswa ( 
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    mahasiswa_id BIGINT UNSIGNED NOT NULL, 
-    alamat VARCHAR(200) NOT NULL, 
-    kota VARCHAR(50) NOT NULL, 
-    CONSTRAINT fk_alamat_mahasiswa 
-    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) 
-    ON UPDATE CASCADE 
-    ON DELETE CASCADE 
-) ENGINE=InnoDB"; 
-``` 
- 
-FOREIGN KEY digunakan agar data alamat dapat terhubung dengan data mahasiswa. ON UPDATE CASCADE dan ON DELETE CASCADE digunakan agar perubahan atau penghapusan data mahasiswa dapat diterapkan pada data yang berhubungan. 
- 
---- 
- 
-### 2.) Menambahkan tabel nilai mahasiswa 
- 
-Pada program ditambahkan tabel nilai_mahasiswa untuk menyimpan nilai mahasiswa berdasarkan mata kuliah yang diambil. 
- 
-**Code:** 
- 
+include "koneksi.php";
+
+$nim = $_POST['nim'];
+$nama = $_POST['nama'];
+$email = $_POST['email'];
+$prodi = $_POST['prodi'];
+$angkatan = $_POST['angkatan'];
+$ipk = $_POST['ipk'];
+```
+
+include "koneksi.php" digunakan untuk menghubungkan program dengan database. Variabel $_POST digunakan untuk mengambil data dari setiap input form agar dapat diproses dan disimpan ke tabel mahasiswa.
+
+---
+
+## 4.) Melakukan Validasi IPK
+
+Program melakukan validasi untuk memastikan nilai IPK berada dalam rentang 0 sampai 4 sebelum data dimasukkan ke database.
+
+**Code:**
+
 ```php
-$sqlTabel2 = "CREATE TABLE IF NOT EXISTS nilai_mahasiswa ( 
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    mahasiswa_id BIGINT UNSIGNED NOT NULL, 
-    mata_kuliah_id BIGINT UNSIGNED NOT NULL, 
-    nilai DECIMAL(5,2) NOT NULL, 
-    CONSTRAINT fk_nilai_mahasiswa 
-    FOREIGN KEY (mahasiswa_id) REFERENCES mahasiswa(id) 
-    ON UPDATE CASCADE 
-    ON DELETE CASCADE, 
-    CONSTRAINT fk_nilai_mk 
-    FOREIGN KEY (mata_kuliah_id) REFERENCES mata_kuliah(id) 
-    ON UPDATE CASCADE 
-    ON DELETE CASCADE 
-) ENGINE=InnoDB"; 
-``` 
- 
-Tabel nilai_mahasiswa memiliki dua FOREIGN KEY. mahasiswa_id terhubung dengan tabel mahasiswa, sedangkan mata_kuliah_id terhubung dengan tabel mata_kuliah. Kolom nilai digunakan untuk menyimpan nilai mahasiswa. 
- 
---- 
- 
-### 3.) Mengubah data IPK 
- 
-Program digunakan untuk mengubah nilai IPK mahasiswa dengan NIM 2025003 menjadi 3.40. 
- 
-**Code:** 
- 
+if ($ipk < 0 || $ipk > 4) {
+    $pesan = "IPK harus antara 0 sampai 4.";
+    $warna = "#dc3545";
+} else {
+    // Proses penyimpanan data
+}
+```
+
+Kondisi if digunakan untuk memeriksa apakah IPK kurang dari 0 atau lebih dari 4. Jika IPK tidak sesuai, program menampilkan pesan kesalahan berwarna merah. Jika IPK valid, program melanjutkan proses penyimpanan data.
+
+---
+
+## 5.) Menyimpan Data Mahasiswa
+
+Program menggunakan perintah INSERT untuk memasukkan data mahasiswa ke dalam tabel mahasiswa berdasarkan input yang telah diisi pada form.
+
+**Code:**
+
 ```php
-$sqlUpdate = "UPDATE mahasiswa 
-              SET ipk = 3.40 
-              WHERE nim = '2025003'"; 
-``` 
- 
-UPDATE digunakan untuk mengubah data yang sudah terdapat di dalam tabel. Pada program ini data yang diubah adalah nilai IPK mahasiswa dengan NIM 2025003. 
- 
---- 
- 
-### 4.) Membuat rekap mahasiswa per prodi 
- 
-Program menggunakan GROUP BY untuk mengelompokkan mahasiswa berdasarkan prodi. Selain itu, COUNT() digunakan untuk menghitung jumlah mahasiswa dan AVG() digunakan untuk menghitung rata-rata IPK. 
- 
-**Code:** 
- 
+$query = mysqli_query(
+    $koneksi,
+    "INSERT INTO mahasiswa
+    (nim, nama, email, prodi, angkatan, ipk)
+    VALUES
+    ('$nim', '$nama', '$email', '$prodi', '$angkatan', '$ipk')"
+);
+```
+
+mysqli_query() digunakan untuk menjalankan perintah SQL ke database. Perintah `INSERT INTO` berfungsi menambahkan data baru ke dalam tabel mahasiswa sesuai dengan kolom yang ditentukan.
+
+---
+
+## 6.) Menampilkan Hasil Penyimpanan
+
+Setelah proses penyimpanan dilakukan, program memeriksa apakah data berhasil dimasukkan ke database atau mengalami kegagalan.
+
+**Code:**
+
 ```php
-$sqlRekap = "SELECT prodi, COUNT(*) AS jumlah, ROUND(AVG(ipk),2) AS rata_ipk 
-FROM mahasiswa 
-GROUP BY prodi 
-ORDER BY jumlah DESC"; 
-``` 
- 
-GROUP BY prodi digunakan untuk mengelompokkan data berdasarkan program studi. COUNT(*) digunakan untuk menghitung jumlah mahasiswa dan AVG(ipk) digunakan untuk menghitung rata-rata IPK. ORDER BY jumlah DESC digunakan untuk mengurutkan data berdasarkan jumlah mahasiswa dari yang terbesar. 
- 
---- 
- 
-### 5.) Menampilkan hasil rekap dengan lebih lengkap 
- 
-Pada program sebelum modifikasi, hasil rekap hanya menampilkan rata-rata IPK. Setelah dimodifikasi, hasil rekap menampilkan prodi, jumlah mahasiswa, dan rata-rata IPK. 
- 
-**Code:** 
- 
+if ($query) {
+    $pesan = "Data mahasiswa berhasil disimpan!";
+    $warna = "#198754";
+} else {
+    $pesan = "Data gagal disimpan. NIM mungkin sudah terdaftar.";
+    $warna = "#dc3545";
+}
+```
+
+Jika query berhasil dijalankan, program menampilkan pesan keberhasilan berwarna hijau. Jika query gagal, program menampilkan pesan kesalahan berwarna merah.
+
+---
+
+## 7.) Membuat Tampilan Hasil Penyimpanan
+
+Program menggunakan HTML dan CSS untuk menampilkan hasil penyimpanan dalam bentuk card yang berisi pesan dan tombol kembali ke form.
+
+**Code:**
+
+```html
+<div class="card">
+    <h2>Hasil Penyimpanan</h2>
+    <p><?= htmlspecialchars($pesan) ?></p>
+    <a href="form.php">Kembali ke Form</a>
+</div>
+```
+
+Elemen div dengan class card digunakan sebagai wadah tampilan hasil. htmlspecialchars() digunakan untuk mengamankan teks pesan yang ditampilkan, sedangkan tautan Kembali ke Form memungkinkan pengguna kembali ke halaman pengisian data mahasiswa.
+
+---
+
+## 8.) Mengatur Warna Pesan Secara Dinamis
+
+Program menggunakan variabel $warna untuk menentukan warna judul berdasarkan hasil proses penyimpanan.
+
+**Code:**
+
 ```php
-while ($row = mysqli_fetch_assoc($resultRekap)) { 
-    echo "Prodi         : " . $row['prodi'] . "\n"; 
-    echo "Jumlah        : " . $row['jumlah'] . "\n"; 
-    echo "Rata-rata IPK : " . $row['rata_ipk'] . "\n"; 
-    echo "----------------------------------------\n"; 
-} 
-``` 
- 
-Dengan perubahan ini, hasil rekap menjadi lebih lengkap karena menampilkan prodi, jumlah mahasiswa, dan rata-rata IPK. 
- 
---- 
- 
-### 6.) Melakukan verifikasi data sebelum penghapusan 
- 
-Sebelum data mahasiswa dihapus, program melakukan pengecekan terlebih dahulu menggunakan SELECT. Data yang diperiksa adalah mahasiswa dengan NIM 2025003. 
- 
-**Code:** 
- 
-```php
-$sqlVerifikasi = "SELECT * 
-                   FROM mahasiswa 
-                   WHERE nim = '2025003'"; 
- 
-$resultVerifikasi = mysqli_query($koneksi, $sqlVerifikasi); 
-``` 
- 
-Hasil query disimpan pada variabel $resultVerifikasi sehingga hasil dari query dapat digunakan untuk mengecek apakah data mahasiswa ditemukan atau tidak. 
- 
---- 
- 
-### 7.) Menghapus data menggunakan DELETE 
- 
-Setelah data mahasiswa ditemukan melalui proses verifikasi, program melakukan penghapusan data menggunakan DELETE. 
- 
-**Code:** 
- 
-```php
-$sqlDelete = "DELETE FROM mahasiswa 
-              WHERE nim = '2025003'"; 
-``` 
- 
-DELETE digunakan untuk menghapus data dari tabel mahasiswa berdasarkan NIM. Pada program ini data yang dihapus adalah mahasiswa dengan NIM 2025003. 
- 
---- 
- 
-### 8.) Menutup koneksi database 
- 
-Setelah seluruh proses selesai dijalankan, koneksi ke database ditutup menggunakan mysqli_close(). 
- 
-**Code:** 
- 
-```php
-mysqli_close($koneksi); 
-``` 
- 
-Kode tersebut digunakan untuk menutup koneksi database setelah seluruh proses selesai dilakukan. 
- 
---- 
- 
-# Lima Bagian Kode yang Penting 
- 
-## 1.) Membuat tabel alamat mahasiswa 
- 
-Kode berikut digunakan untuk membuat tabel alamat_mahasiswa yang menyimpan data alamat mahasiswa. 
- 
-**Code:** 
- 
-```php
-CREATE TABLE IF NOT EXISTS alamat_mahasiswa ( 
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    mahasiswa_id BIGINT UNSIGNED NOT NULL, 
-    alamat VARCHAR(200) NOT NULL, 
-    kota VARCHAR(50) NOT NULL 
-) ENGINE=InnoDB
-``` 
- 
-CREATE TABLE digunakan untuk membuat tabel baru, sedangkan IF NOT EXISTS digunakan agar tabel tidak dibuat ulang apabila tabel sudah tersedia. 
- 
---- 
- 
-## 2.) Membuat tabel nilai mahasiswa 
- 
-Kode berikut digunakan untuk membuat tabel nilai_mahasiswa yang menyimpan nilai mahasiswa dan mata kuliah yang diambil. 
- 
-**Code:** 
- 
-```php
-CREATE TABLE IF NOT EXISTS nilai_mahasiswa ( 
-    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
-    mahasiswa_id BIGINT UNSIGNED NOT NULL, 
-    mata_kuliah_id BIGINT UNSIGNED NOT NULL, 
-    nilai DECIMAL(5,2) NOT NULL 
-) ENGINE=InnoDB
-``` 
- 
-Tabel ini digunakan untuk menghubungkan mahasiswa dengan mata kuliah serta menyimpan nilai yang diperoleh. 
- 
---- 
- 
-## 3.) Menggunakan GROUP BY 
- 
-Kode berikut digunakan untuk membuat rekap mahasiswa berdasarkan prodi. 
- 
-**Code:** 
- 
-```php
-SELECT prodi, COUNT(*) AS jumlah, ROUND(AVG(ipk),2) AS rata_ipk 
-FROM mahasiswa 
-GROUP BY prodi 
-``` 
- 
-GROUP BY digunakan untuk mengelompokkan data berdasarkan prodi. COUNT digunakan untuk menghitung jumlah mahasiswa dan AVG digunakan untuk menghitung rata-rata IPK. 
- 
---- 
- 
-## 4.) Melakukan verifikasi dengan SELECT 
- 
-Kode berikut digunakan untuk mencari data mahasiswa berdasarkan NIM sebelum dilakukan penghapusan. 
- 
-**Code:** 
- 
-```php
-SELECT * 
-FROM mahasiswa 
-WHERE nim = '2025003'
-``` 
- 
-SELECT digunakan untuk mengambil data dari tabel mahasiswa. Proses ini dilakukan untuk memastikan data yang akan dihapus memang tersedia. 
- 
---- 
- 
-## 5.) Menghapus data dengan DELETE 
- 
-Kode berikut digunakan untuk menghapus data mahasiswa berdasarkan NIM. 
- 
-**Code:** 
- 
-```php
-DELETE FROM mahasiswa 
-WHERE nim = '2025003'
-``` 
- 
-DELETE digunakan untuk menghapus data dari tabel mahasiswa sesuai dengan kondisi yang diberikan. 
- 
---- 
+h2 {
+    color: <?= $warna ?>;
+}
+```
+
+Variabel $warna berisi kode warna yang ditentukan berdasarkan kondisi program. Warna hijau digunakan ketika data berhasil disimpan, sedangkan warna merah digunakan ketika terjadi kesalahan.
+
+---
