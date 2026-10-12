@@ -46,33 +46,37 @@ FAKULTAS TEKNIK UNIVERSITAS PANCASILA <br>
  
 --- 
  
-# TUGAS 4 
+# TUGAS 5
  
 ## Menjalankan Program Sebelum Modifikasi 
  
-Program tugas4.php dijalankan terlebih dahulu untuk memastikan proses pengolahan data pada database dapat berjalan dengan baik. 
+Program form.php dijalankan terlebih dahulu untuk memastikan proses pengolahan data pada database dapat berjalan dengan baik. 
  
-### Program Sebelum Modifikasi
+### Tampilan sebelum dilakukan modifikasi 
  
-![Tugas 4 Sebelum](../asset/tgs4_sebelum.png) 
+![Tugas 4 Sebelum](../asset/form_sebelum.png) 
+
+## Menjalankan Program Sebelum Modifikasi 
+
+Program simpan.php dijalankan terlebih dahulu untuk memastikan proses pengolahan data pada database dapat berjalan dengan baik. 
 
 ### Tampilan sebelum dilakukan modifikasi 
 
-![Kode Tugas 4 Sebelum](../asset/tgs4php_sebelum.png)
+![Kode Tugas 4 Sebelum](../asset/simpan_sebelum.png)
  
 --- 
  
 # Modifikasi Program 
  
-## A. Modifikasi pada tugas4.php
+## A. Modifikasi pada form.php dan simpan.php
  
-### Program Sesudah Modifikasi
+### Tampilan Sesudah Modifikasi
  
-![Tugas 4 Sesudah](../asset/tgs4_sesudah.png)
+![Tugas 4 Sesudah](../asset/form_sesudah.png)
 
 ### Tampilan Sesudah Modifikasi
 
-![Kode Tugas 4 Sesudah](../asset/tgs4php_sesudah.png)
+![Kode Tugas 4 Sesudah](../asset/simpan_sesudah.png)
  
 ### 1.) Menambahkan tabel alamat mahasiswa 
  
