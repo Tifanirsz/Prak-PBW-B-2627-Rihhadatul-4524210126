@@ -46,7 +46,7 @@ FAKULTAS TEKNIK UNIVERSITAS PANCASILA <br>
  
 --- 
  
-# TUGAS 5
+# TUGAS 6
  
 ## Menjalankan Program Sebelum Modifikasi 
  
