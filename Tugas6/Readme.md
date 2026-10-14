@@ -541,20 +541,23 @@ Jika penyimpanan berhasil, program menampilkan detail mahasiswa yang baru disimp
 
 Tombol Kembali ke Data Mahasiswa digunakan untuk membuka halaman utama. Jika penyimpanan gagal, tombol Kembali ke Form Tambah juga ditampilkan agar pengguna dapat memperbaiki input dan mencoba menyimpan kembali.
 
-
 ---
 
 ## 4. Modifikasi pada `edit.php`
 
 ### Tampilan Sebelum Modifikasi
 
-Pada program sebelum modifikasi, file `edit.php` digunakan untuk mengambil data mahasiswa berdasarkan NIM dan menampilkan form yang berisi data lama. Pengguna dapat mengubah NIM, nama, email, program studi, angkatan, dan IPK, kemudian mengirim perubahan ke file `update.php`.
+![Tugas 4 Sebelum](../asset/edit_sebelum.png) 
+
+Pada program sebelum modifikasi, file edit.php digunakan untuk mengambil data mahasiswa berdasarkan NIM dan menampilkan form yang berisi data lama. Pengguna dapat mengubah NIM, nama, email, program studi, angkatan, dan IPK, kemudian mengirim perubahan ke file update.php.
 
 ### Tampilan Sesudah Modifikasi
 
-Pada program setelah modifikasi, ditambahkan validasi NIM, penggunaan prepared statement untuk mengambil data, penanganan ketika data tidak ditemukan, dan pengamanan output menggunakan `htmlspecialchars()`. NIM juga dibuat tidak dapat diubah, sementara tampilan form diperbaiki agar lebih rapi dan responsif.
+![Tugas 4 Sebelum](../asset/edit_sesudah.png) 
 
-### 4.1 Menggunakan Prepared Statement untuk Mengambil Data
+Pada program setelah modifikasi, ditambahkan validasi NIM, penggunaan prepared statement untuk mengambil data, penanganan ketika data tidak ditemukan, dan pengamanan output menggunakan htmlspecialchars(). NIM juga dibuat tidak dapat diubah, sementara tampilan form diperbaiki agar lebih rapi dan responsif.
+
+### Menggunakan Prepared Statement untuk Mengambil Data
 
 **Code:**
 
@@ -581,9 +584,9 @@ $result = mysqli_stmt_get_result($stmt);
 $data = mysqli_fetch_assoc($result);
 ```
 
-Kode tersebut digunakan untuk mengambil data mahasiswa berdasarkan NIM yang dikirim melalui URL. `trim()` membersihkan spasi pada NIM, sedangkan prepared statement membantu mencegah SQL injection karena nilai NIM dikirim sebagai parameter query.
+Kode tersebut digunakan untuk mengambil data mahasiswa berdasarkan NIM yang dikirim melalui URL. trim() membersihkan spasi pada NIM, sedangkan prepared statement membantu mencegah SQL injection karena nilai NIM dikirim sebagai parameter query.
 
-### 4.2 Menambahkan Pemeriksaan Data Mahasiswa
+### Menambahkan Pemeriksaan Data Mahasiswa
 
 **Code:**
 
@@ -597,9 +600,9 @@ if (!$data) {
 }
 ```
 
-Kondisi `if (!$data)` digunakan untuk memeriksa apakah data mahasiswa ditemukan di database. Jika data tidak ditemukan, program menampilkan pesan peringatan dan mengarahkan pengguna kembali ke halaman utama.
+Kondisi if (!$data) digunakan untuk memeriksa apakah data mahasiswa ditemukan di database. Jika data tidak ditemukan, program menampilkan pesan peringatan dan mengarahkan pengguna kembali ke halaman utama.
 
-### 4.3 Menambahkan Fungsi Keamanan Output
+### Menambahkan Fungsi Keamanan Output
 
 **Code:**
 
@@ -609,9 +612,9 @@ function e($value) {
 }
 ```
 
-Fungsi `e()` digunakan untuk mengamankan data yang ditampilkan pada halaman edit. `htmlspecialchars()` mengubah karakter khusus HTML menjadi bentuk yang aman sehingga membantu mengurangi risiko serangan XSS.
+Fungsi e() digunakan untuk mengamankan data yang ditampilkan pada halaman edit. htmlspecialchars() mengubah karakter khusus HTML menjadi bentuk yang aman sehingga membantu mengurangi risiko serangan XSS.
 
-### 4.4 Membuat NIM Tidak Dapat Diubah
+### Membuat NIM Tidak Dapat Diubah
 
 **Code:**
 
@@ -631,9 +634,9 @@ Fungsi `e()` digunakan untuk mengamankan data yang ditampilkan pada halaman edit
 </div>
 ```
 
-NIM ditampilkan sebagai identitas mahasiswa dan tidak lagi menggunakan input yang dapat diedit. Nilai NIM dikirim ke `update.php` melalui input bertipe `hidden` agar dapat digunakan untuk menentukan data yang akan diperbarui.
+NIM ditampilkan sebagai identitas mahasiswa dan tidak lagi menggunakan input yang dapat diedit. Nilai NIM dikirim ke update.php melalui input bertipe hidden agar dapat digunakan untuk menentukan data yang akan diperbarui.
 
-### 4.5 Menambahkan Validasi pada Form Edit
+### Menambahkan Validasi pada Form Edit
 
 **Code:**
 
@@ -649,9 +652,9 @@ NIM ditampilkan sebagai identitas mahasiswa dan tidak lagi menggunakan input yan
     class="w-full rounded-lg border border-gray-300 p-3 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 outline-none">
 ```
 
-Validasi ditambahkan untuk membatasi angkatan dari 2000 sampai 2100 dan IPK dari 0 sampai 4. Atribut `required` memastikan kolom harus diisi, sedangkan `step="0.01"` memungkinkan IPK menggunakan dua angka di belakang koma.
+Validasi ditambahkan untuk membatasi angkatan dari 2000 sampai 2100 dan IPK dari 0 sampai 4. Atribut required memastikan kolom harus diisi, sedangkan step="0.01" memungkinkan IPK menggunakan dua angka di belakang koma.
 
-### 4.6 Memperbaiki Tampilan Form Menggunakan Tailwind CSS
+### Memperbaiki Tampilan Form Menggunakan Tailwind CSS
 
 **Code:**
 
@@ -669,7 +672,7 @@ Validasi ditambahkan untuk membatasi angkatan dari 2000 sampai 2100 dan IPK dari
 
 Tampilan form diperbaiki dengan menambahkan bagian judul berwarna biru, sudut membulat, bayangan, dan petunjuk pengisian. Tailwind CSS digunakan agar tampilan lebih terstruktur dan nyaman digunakan.
 
-### 4.7 Mengatur Form Menjadi Responsif
+### Mengatur Form Menjadi Responsif
 
 **Code:**
 
@@ -677,9 +680,9 @@ Tampilan form diperbaiki dengan menambahkan bagian judul berwarna biru, sudut me
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 ```
 
-Kelas `grid-cols-1` membuat input tersusun dalam satu kolom pada layar kecil, sedangkan `md:grid-cols-2` mengatur dua kolom pada layar berukuran sedang atau lebih besar. Dengan demikian, form dapat menyesuaikan ukuran layar perangkat.
+Kelas grid-cols-1 membuat input tersusun dalam satu kolom pada layar kecil, sedangkan md:grid-cols-2 mengatur dua kolom pada layar berukuran sedang atau lebih besar. Dengan demikian, form dapat menyesuaikan ukuran layar perangkat.
 
-### 4.8 Menambahkan Tombol Simpan Perubahan dan Batal
+### Menambahkan Tombol Simpan Perubahan dan Batal
 
 **Code:**
 
@@ -697,14 +700,16 @@ Kelas `grid-cols-1` membuat input tersusun dalam satu kolom pada layar kecil, se
 </div>
 ```
 
-Tombol Simpan Perubahan digunakan untuk mengirim data yang telah diperbarui ke `update.php`. Tombol Batal digunakan untuk kembali ke halaman utama tanpa mengirim perubahan.
+Tombol Simpan Perubahan digunakan untuk mengirim data yang telah diperbarui ke update.php. Tombol Batal digunakan untuk kembali ke halaman utama tanpa mengirim perubahan.
 
 
 ## 5. Modifikasi File `update.php`
 
-File `update.php` digunakan untuk memperbarui data mahasiswa yang sudah diedit melalui form. Pada kode awal, data langsung diambil dari `$_POST` dan dimasukkan ke query SQL. Kode kemudian dimodifikasi dengan menambahkan validasi, prepared statement, pengecekan NIM, serta tampilan hasil pembaruan yang lebih informatif.
+File update.php digunakan untuk memperbarui data mahasiswa yang sudah diedit melalui form. Pada kode awal, data langsung diambil dari $_POST dan dimasukkan ke query SQL. Kode kemudian dimodifikasi dengan menambahkan validasi, prepared statement, pengecekan NIM, serta tampilan hasil pembaruan yang lebih informatif.
 
 ### A. Kode Sebelum Modifikasi
+
+![Tugas 4 Sebelum](../asset/update_sebelum.png) 
 
 ```php
 <?php
@@ -741,11 +746,11 @@ if ($query) {
 }
 ?>
 ```
-
-**Penjelasan:**
-Kode awal memperbarui data mahasiswa berdasarkan NIM menggunakan query `UPDATE`. Namun, kode belum memiliki validasi input dan masih memasukkan data langsung ke query SQL sehingga berisiko terhadap SQL Injection.
+Kode awal memperbarui data mahasiswa berdasarkan NIM menggunakan query UPDATE. Namun, kode belum memiliki validasi input dan masih memasukkan data langsung ke query SQL sehingga berisiko terhadap SQL Injection.
 
 ### B. Kode Setelah Modifikasi
+
+![Tugas 4 Sebelum](../asset/update_sesudah.png) 
 
 ```php
 // Modifikasi 1: Validasi data mahasiswa
@@ -766,7 +771,6 @@ if (
 }
 ```
 
-**Penjelasan:**
 Ditambahkan validasi untuk memastikan data wajib diisi, format email benar, angkatan berada pada rentang 2000–2100, dan IPK berada di antara 0 sampai 4. Validasi ini membantu mencegah data yang tidak sesuai masuk ke database.
 
 ```php
@@ -786,7 +790,6 @@ if (mysqli_num_rows($hasil) == 0) {
 }
 ```
 
-**Penjelasan:**
 Sebelum memperbarui data, sistem memeriksa apakah NIM yang dimasukkan benar-benar tersedia di database. Jika data tidak ditemukan, proses pembaruan tidak dilanjutkan.
 
 ```php
@@ -813,9 +816,7 @@ mysqli_stmt_bind_param(
     $nim
 );
 ```
-
-**Penjelasan:**
-Query `UPDATE` diubah menggunakan prepared statement dan parameter terpisah. Cara ini membantu mencegah SQL Injection serta membuat proses pembaruan data lebih aman.
+Query UPDATE diubah menggunakan prepared statement dan parameter terpisah. Cara ini membantu mencegah SQL Injection serta membuat proses pembaruan data lebih aman.
 
 ```php
 // Modifikasi 4: Menampilkan status pembaruan
@@ -827,8 +828,7 @@ if (mysqli_stmt_execute($stmt)) {
 }
 ```
 
-**Penjelasan:**
-Hasil pembaruan disimpan dalam variabel `$berhasil` dan `$pesan`. Variabel tersebut digunakan untuk menentukan apakah sistem menampilkan status berhasil atau gagal kepada pengguna.
+Hasil pembaruan disimpan dalam variabel $berhasil dan $pesan. Variabel tersebut digunakan untuk menentukan apakah sistem menampilkan status berhasil atau gagal kepada pengguna.
 
 ```php
 // Modifikasi 5: Mengamankan output
@@ -841,25 +841,15 @@ function e($value) {
 }
 ```
 
-**Penjelasan:**
-Fungsi `e()` digunakan untuk mengamankan teks yang ditampilkan pada halaman dengan mengubah karakter khusus HTML. Fungsi ini membantu mengurangi risiko Cross-Site Scripting (XSS).
-
-### C. Modifikasi Tampilan Hasil Pembaruan
-
-Selain mengubah proses PHP, tampilan hasil pembaruan juga dibuat lebih informatif menggunakan Tailwind CSS.
-
-- Menampilkan ikon dan warna hijau jika pembaruan berhasil, atau merah jika gagal.
-- Menampilkan nama mahasiswa, NIM, dan IPK terbaru setelah pembaruan berhasil.
-- Menambahkan tombol **Kembali ke Data Mahasiswa** untuk membuka daftar mahasiswa.
-- Menambahkan tombol **Kembali ke Form Edit** apabila pembaruan gagal.
-- Menggunakan desain responsif agar tampilan tetap nyaman digunakan pada berbagai ukuran layar.
-
+Fungsi e() digunakan untuk mengamankan teks yang ditampilkan pada halaman dengan mengubah karakter khusus HTML. Fungsi ini membantu mengurangi risiko Cross-Site Scripting (XSS).
 
 ## 6. Modifikasi File `delete.php`
 
-File `delete.php` digunakan untuk menghapus data mahasiswa berdasarkan NIM. Pada kode awal, proses penghapusan dilakukan langsung menggunakan query SQL dan menampilkan pesan melalui JavaScript. Setelah dimodifikasi, proses penghapusan dilengkapi pengecekan data, prepared statement, penanganan error, dan tampilan hasil penghapusan.
+File delete.php digunakan untuk menghapus data mahasiswa berdasarkan NIM. Pada kode awal, proses penghapusan dilakukan langsung menggunakan query SQL dan menampilkan pesan melalui JavaScript. Setelah dimodifikasi, proses penghapusan dilengkapi pengecekan data, prepared statement, penanganan error, dan tampilan hasil penghapusan.
 
 ### A. Kode Sebelum Modifikasi
+
+![Tugas 4 Sebelum](../asset/delete_sebelum.png) 
 
 ```php
 <?php
@@ -887,11 +877,13 @@ if ($query) {
 ?>
 ```
 
-Kode awal mengambil NIM melalui `$_GET['nim']`, kemudian langsung menjalankan query `DELETE` untuk menghapus data mahasiswa. Namun, kode belum memeriksa apakah NIM tersedia dan masih menggunakan query SQL yang berisiko terhadap SQL Injection.
+Kode awal mengambil NIM melalui $_GET['nim'], kemudian langsung menjalankan query DELETE untuk menghapus data mahasiswa. Namun, kode belum memeriksa apakah NIM tersedia dan masih menggunakan query SQL yang berisiko terhadap SQL Injection.
 
 ### B. Kode Setelah Modifikasi
 
-#### 1. Memeriksa NIM dan Mengambil Data Mahasiswa
+![Tugas 4 Sebelum](../asset/delete_sesudah.png) 
+
+#### Memeriksa NIM dan Mengambil Data Mahasiswa
 
 ```php
 $nim = trim($_GET['nim'] ?? '');
@@ -916,7 +908,7 @@ if ($nim === '') {
 
 Ditambahkan pemeriksaan NIM agar sistem dapat menangani parameter yang kosong. Sistem juga mengambil nama dan email mahasiswa sebelum penghapusan supaya informasi data yang dihapus dapat ditampilkan kembali kepada pengguna.
 
-#### 2. Menghapus Data dengan Prepared Statement
+#### Menghapus Data dengan Prepared Statement
 
 ```php
 $stmt = mysqli_prepare(
@@ -936,7 +928,7 @@ if (mysqli_stmt_execute($stmt)) {
 
 Query penghapusan diubah menggunakan prepared statement dengan parameter NIM. Modifikasi ini membantu mencegah SQL Injection dan membuat proses penghapusan lebih aman dibandingkan memasukkan nilai langsung ke query.
 
-#### 3. Memeriksa Apakah Data Ditemukan
+#### Memeriksa Apakah Data Ditemukan
 
 ```php
 if (!$data) {
@@ -949,7 +941,7 @@ if (!$data) {
 
 Sistem memeriksa hasil pencarian mahasiswa sebelum menjalankan penghapusan. Jika data tidak ditemukan atau sudah dihapus, sistem menampilkan pesan yang sesuai dan tidak melanjutkan proses penghapusan.
 
-#### 4. Menangani Kesalahan Penghapusan
+#### Menangani Kesalahan Penghapusan
 
 ```php
 try {
@@ -966,7 +958,7 @@ try {
 
 Ditambahkan penanganan error untuk memberikan informasi ketika penghapusan gagal, misalnya karena data mahasiswa masih terhubung dengan data lain melalui relasi database. Penanganan ini bergantung pada konfigurasi MySQLi dan aturan relasi database yang digunakan.
 
-#### 5. Mengamankan Data yang Ditampilkan
+#### Mengamankan Data yang Ditampilkan
 
 ```php
 function e($value) {
