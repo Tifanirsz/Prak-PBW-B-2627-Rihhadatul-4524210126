@@ -48,22 +48,22 @@ FAKULTAS TEKNIK UNIVERSITAS PANCASILA <br>
 
 # TUGAS 8
 
-## Index (halaman utama)
+## Data Mahasiswa
 
-![Biodata Sebelum](../asset/halaman_daftar_produk.png)
+![Biodata Sebelum](../asset/data_mahasiswa.png)
 
-## Form Edit
+## Tambah Data
 
-![Biodata Sebelum](../asset/edit.png)
+![Biodata Sebelum](../asset/tambah_mahasiswa.png)
 
-![Biodata Sebelum](../asset/edit_berhasil.png)
+## Isi Data
 
-## Form Tambah
+![Biodata Sebelum](../asset/isi_data.png)
 
-![Biodata Sebelum](../asset/tambah.png)
+## Tampilan Data Tersimpan
 
-![Biodata Sebelum](../asset/tambah_berhasil.png)
+![Biodata Sebelum](../asset/data_tersimpan.png)
 
-## Database
+## Pesan Kesalahan
 
-![Biodata Sebelum](../asset/database.png)
+![Biodata Sebelum](../asset/pesan_kesalahan.png)
