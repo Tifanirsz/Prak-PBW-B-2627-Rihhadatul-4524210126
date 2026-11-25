@@ -49,21 +49,26 @@ FAKULTAS TEKNIK UNIVERSITAS PANCASILA <br>
 # TUGAS 8
 
 ## Data Mahasiswa
+Menampilkan daftar mahasiswa yang tersimpan di database dalam bentuk tabel, meliputi NIM, nama, program studi, dan IPK.
 
 ![Biodata Sebelum](../asset/data_mahasiswa.png)
 
 ## Tambah Data
+Menampilkan halaman form untuk menambahkan data mahasiswa baru dengan seluruh kolom input masih kosong.
 
 ![Biodata Sebelum](../asset/tambah_mahasiswa.png)
 
 ## Isi Data
+Menunjukkan form tambah mahasiswa yang sudah diisi dengan NIM, nama, email, prodi, angkatan, dan IPK sebelum menekan tombol Simpan.
 
 ![Biodata Sebelum](../asset/isi_data.png)
 
 ## Tampilan Data Tersimpan
+Menampilkan data mahasiswa yang sudah berhasil disimpan ke database, termasuk data Budi Santoso dengan NIM 4524210126.
 
 ![Biodata Sebelum](../asset/data_tersimpan.png)
 
 ## Pesan Kesalahan
+Terjadi kesalahan ketika menginput menggunakan isi data yang sama karena NIM 4524210126 sudah terdaftar di database, sehingga tidak bisa ditambahkan kembali karena NIM bersifat unik.
 
 ![Biodata Sebelum](../asset/pesan_kesalahan.png)
